@@ -29,3 +29,14 @@ random_string.suffix.result → a random string suffix for uniqueness.
 **Access Control**
 acl = "private"
 Sets the bucket to private, meaning no public access by default.
+
+**Tags**
+tags = {
+  Environment = var.environment
+  ManagedBy   = "Terraform"
+}
+Adds metadata to the bucket:
+
+Environment → value comes from the var.environment variable.
+
+ManagedBy → indicates Terraform manages the resource.
