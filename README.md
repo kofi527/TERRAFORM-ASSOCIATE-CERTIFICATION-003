@@ -12,3 +12,8 @@
     ManagedBy   = "Terraform"
   }
 }
+
+**Resource Type and Name.**
+*resource "aws_s3_bucket" "my_bucket"
+  -Creates an S3 bucket.
+  -The local name my_bucket is how other resources can reference it in the Terraform project.
