@@ -25,3 +25,7 @@ Dynamically generates the bucket name using:
 var.project_name → a variable that stores the project's name.
 
 random_string.suffix.result → a random string suffix for uniqueness.
+
+**Access Control**
+acl = "private"
+Sets the bucket to private, meaning no public access by default.
