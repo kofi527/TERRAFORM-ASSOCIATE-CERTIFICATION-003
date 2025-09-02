@@ -40,3 +40,17 @@ Adds metadata to the bucket:
 Environment → value comes from the var.environment variable.
 
 ManagedBy → indicates Terraform manages the resource.
+
+2. Exploring data sources
+   data "aws_ami" "example" {
+  most_recent = true
+
+  owners = ["self"]
+  tags = {
+    Name   = "app-server"
+    Tested = "true"
+  }
+}
+
+A data block requests that Terraform read from a given data source ("aws_ami") and export the result under the given local name ("example"). The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside of the scope of a module.
+
