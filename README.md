@@ -54,3 +54,12 @@ ManagedBy → indicates Terraform manages the resource.
 
 A data block requests that Terraform read from a given data source ("aws_ami") and export the result under the given local name ("example"). The name is used to refer to this resource from elsewhere in the same Terraform module, but has no significance outside of the scope of a module.
 
+**Terraformmodule**
+A Terraform module is a set of Terraform configuration files in a single directory. Even a simple configuration consisting of a single directory with one or more .tf files is a module. When you run Terraform commands directly from such a directory, it is considered the root module. So in this sense, every Terraform configuration is part of a module. You may have a simple set of Terraform configuration files such as:
+
+.
+├── LICENSE
+├── README.md
+├── main.tf
+├── variables.tf
+├── outputs.tf
