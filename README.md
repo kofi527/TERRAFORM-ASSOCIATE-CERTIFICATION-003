@@ -63,3 +63,58 @@ A Terraform module is a set of Terraform configuration files in a single directo
 ├── main.tf
 ├── variables.tf
 ├── outputs.tf
+
+3. **modulevpc** 
+
+explanation
+provider "aws" {
+  region = "us-west-2"
+
+  default_tags {
+    tags = {
+      hashicorp-learn = "module-use"
+    }
+  }
+}
+
+module "vpc" {
+  source  = "terraform-aws-modules/vpc/aws"
+  version = "3.18.1"
+
+  name = var.vpc_name
+  cidr = var.vpc_cidr
+
+  azs             = var.vpc_azs
+  private_subnets = var.vpc_private_subnets
+  public_subnets  = var.vpc_public_subnets
+
+  enable_nat_gateway = var.vpc_enable_nat_gateway
+
+  tags = var.vpc_tags
+}
+
+module "ec2_instances" {
+  source  = "terraform-aws-modules/ec2-instance/aws"
+  version = "4.3.0"
+
+  count = 2
+  name  = "my-ec2-cluster-${count.index}"
+
+  ami                    = "ami-0c5204531f799e0c6"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = [module.vpc.default_security_group_id]
+  subnet_id              = module.vpc.public_subnets[0]
+
+  tags = {
+    Terraform   = "true"
+    Environment = "dev"
+  }
+}
+
+Explanation of the above resource module.
+This configuration includes three blocks:
+
+The provider "aws" block configures the AWS provider. Depending on the authentication method you use, you may need to include additional arguments in the provider block.
+The module "vpc" block configures a Virtual Private Cloud (VPC) module, which provisions networking resources such as a VPC, subnets, and internet and NAT gateways based on the arguments provided.
+The module "ec2_instances" block defines two EC2 instances provisioned within the VPC created by the module.
+
