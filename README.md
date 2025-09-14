@@ -118,3 +118,6 @@ The provider "aws" block configures the AWS provider. Depending on the authentic
 The module "vpc" block configures a Virtual Private Cloud (VPC) module, which provisions networking resources such as a VPC, subnets, and internet and NAT gateways based on the arguments provided.
 The module "ec2_instances" block defines two EC2 instances provisioned within the VPC created by the module.
 
+4. Terraform Lifecycle rules
+
+   Lifecycle arguments help control the flow of your Terraform operations by creating custom rules for resource creation and destruction. Instead of Terraform managing operations in the built-in dependency graph, lifecycle arguments help minimize potential downtime based on your resource needs as well as protect specific resources from changing or impacting infrastructure.
