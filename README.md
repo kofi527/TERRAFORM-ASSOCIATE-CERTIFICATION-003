@@ -121,3 +121,6 @@ The module "ec2_instances" block defines two EC2 instances provisioned within th
 4. Terraform Lifecycle rules
 
    Lifecycle arguments help control the flow of your Terraform operations by creating custom rules for resource creation and destruction. Instead of Terraform managing operations in the built-in dependency graph, lifecycle arguments help minimize potential downtime based on your resource needs as well as protect specific resources from changing or impacting infrastructure.
+
+5. Terraform Dependency graph
+   Terraform's dependency graph is a fundamental concept used to manage the order of resource creation, updates, and deletion. It represents the relationships between resources and modules within a Terraform configuration.
