@@ -124,3 +124,10 @@ The module "ec2_instances" block defines two EC2 instances provisioned within th
 
 5. Terraform Dependency graph
    Terraform's dependency graph is a fundamental concept used to manage the order of resource creation, updates, and deletion. It represents the relationships between resources and modules within a Terraform configuration.
+
+6 HCP Terraform provides four imports to define policy rules for the plan, configuration, state, and run associated with a policy check.
+
+tfplan - Access a Terraform plan, which is the file created as a result of the terraform plan command. The plan represents the changes that Terraform must make to reach the desired infrastructure state described in the configuration.
+tfconfig - Access a Terraform configuration. The configuration is the set of .tf files that describe the desired infrastructure state.
+tfstate - Access the Terraform state. Terraform uses state to map real-world resources to your configuration.
+tfrun - Access data associated with a run in HCP Terraform. For example, you could retrieve the run's workspace.
