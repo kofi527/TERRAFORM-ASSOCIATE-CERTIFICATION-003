@@ -131,3 +131,6 @@ tfplan - Access a Terraform plan, which is the file created as a result of the t
 tfconfig - Access a Terraform configuration. The configuration is the set of .tf files that describe the desired infrastructure state.
 tfstate - Access the Terraform state. Terraform uses state to map real-world resources to your configuration.
 tfrun - Access data associated with a run in HCP Terraform. For example, you could retrieve the run's workspace.
+
+7. default
+The default argument defines a default value for the variable, making it optional to provide a value. If you do not provide a variable value when using a module, Terraform uses the default value.
