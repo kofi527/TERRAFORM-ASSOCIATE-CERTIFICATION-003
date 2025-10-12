@@ -134,3 +134,7 @@ tfrun - Access data associated with a run in HCP Terraform. For example, you cou
 
 7. default
 The default argument defines a default value for the variable, making it optional to provide a value. If you do not provide a variable value when using a module, Terraform uses the default value.
+
+8. What are Terraform Editions?
+Cloud: SaaS application that runs Terraform in a stable, remote environment and securely stores state and secrets
+Enterprise: allows you to set up private instances of Terraform Cloud  
